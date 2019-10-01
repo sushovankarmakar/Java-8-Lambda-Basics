@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class StreamsExample1 {
-
+	
 	public static void main(String[] args) {
 		List<Person> people = Arrays.asList(
 				new Person("Puja", "Pal", 23),
@@ -13,8 +13,23 @@ public class StreamsExample1 {
 				new Person("Arpan", "Ghosh", 21),
 				new Person("Vikas", "Guha", 20)
 				);
-		people.stream()
-		.filter(p -> p.getLastName().startsWith("P"))
-		.forEach(p -> System.out.println(p.getFirstName()));
+		
+		// Lambda expression enables parallel processing
+		
+		
+		people.stream()   // source of the stream
+		.filter(p -> p.getLastName().startsWith("P"))   // operation has to perform on the stream
+		.forEach(p -> System.out.println(p.getFirstName()));   // terminal operation
+		
+		long count = people.stream()
+				.filter(p -> p.getLastName().startsWith("G"))
+				.count();
+		System.out.println("count " + count);
+		
+		long count1 = people.parallelStream()
+				.filter(p -> p.getLastName().startsWith("K"))
+				.count();
+		System.out.println("count " + count1);
+		
 	}
 }
