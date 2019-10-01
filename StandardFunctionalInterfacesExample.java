@@ -1,6 +1,5 @@
 package io.java8;
 
-import java.io.Console;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;

@@ -34,6 +34,9 @@ public class Greeter {
 		 
 		 MyLambda myLamdaFunction = () -> System.out.println("Hello Lamda");
 		 MyAdd addFunction = (int a, int b) -> a+b;
+		 
+		 myLamdaFunction.foo();
+		 System.out.println(addFunction.add(2, 3));
 	}
 }
 
